@@ -1,7 +1,7 @@
 const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
     mode: 'development',
@@ -17,8 +17,7 @@ module.exports = {
     devServer: {
         port: 3010,
         static: './dist',
-        hot: true,
-        
+        hot: true
         
     },
     module: {
@@ -32,14 +31,16 @@ module.exports = {
             },
             {
                 test: /\.scss$/,
+                exclude: /node_modules/,
                 use: [
                     MiniCssExtractPlugin.loader,
-                    'css-loader',
-                    'sass-loader',   
-                ]
+                    'css-loader', 
+                    'sass-loader'   
+                ],
             },
             {
                 test: /\.(png|jpg|svg)$/,
+                exclude: /node_modules/,
                 use: [{
                     loader: 'file-loader',
                     options: {}
@@ -47,5 +48,5 @@ module.exports = {
             }
         ]
     },
-    plugins: [new MiniCssExtractPlugin(), new webpack.HotModuleReplacementPlugin()], 
+    plugins: [new MiniCssExtractPlugin(), new webpack.HotModuleReplacementPlugin()]
 };
