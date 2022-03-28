@@ -49,5 +49,5 @@ module.exports = {
             }
         ]
     },
-    plugins: [new MiniCssExtractPlugin(), new webpack.HotModuleReplacementPlugin(), new HtmlWebpackPlugin({filename:"/dist", favicon:"./src/favicon.ico"}]
+    plugins: [new MiniCssExtractPlugin(), new webpack.HotModuleReplacementPlugin(), new HtmlWebpackPlugin({filename:"/dist", favicon:"./src/favicon.ico"})]
 };
