@@ -12,12 +12,13 @@ module.exports = {
     output: {
         path: path.join(__dirname, 'dist'),
         filename: 'index.bundle.js',
+        clean: true,
     },
     devtool: 'inline-source-map',
     devServer: {
         port: 3010,
         static: './dist',
-        hot: true
+        historyApiFallback: true,
         
     },
     module: {
@@ -39,7 +40,7 @@ module.exports = {
                 ],
             },
             {
-                test: /\.(png|jpg|svg)$/,
+                test: /\.(png|jpg|svg|webp|ico)$/,
                 exclude: /node_modules/,
                 use: [{
                     loader: 'file-loader',
@@ -48,5 +49,5 @@ module.exports = {
             }
         ]
     },
-    plugins: [new MiniCssExtractPlugin(), new webpack.HotModuleReplacementPlugin()]
+    plugins: [new MiniCssExtractPlugin(), new webpack.HotModuleReplacementPlugin(), new HtmlWebpackPlugin({filename:"/dist", favicon:"./src/favicon.ico"}]
 };
